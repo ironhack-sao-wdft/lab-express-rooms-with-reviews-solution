@@ -14,3 +14,5 @@ router.post("/room", async (req,res) => {
         return res.status(500).json({ msg: err});
     }
 });
+
+module.exports = router;

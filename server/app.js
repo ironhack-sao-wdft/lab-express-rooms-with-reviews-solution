@@ -15,5 +15,8 @@ db();
 const router = require("./routes/index.routes");
 app.use("/", router);
 
+const roomsRouter = require("./routes/room.routes");
+app.use("/", roomsRouter);
+
 app.listen(Number(process.env.PORT), () =>
     console.log(`Server running at port ${process.env.PORT}.`));

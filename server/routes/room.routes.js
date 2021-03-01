@@ -38,23 +38,37 @@ router.get("/room/:id", async (req, res) => {
   }
 });
 
-router.patch("/room/:id", async (req,res) => {
-    try {
-        const updatedRoom = await Room.findOneAndUpdate(
-            { _id: req.params.id },
-            { $set: req.body },
-            { new: true }
-        );
+router.patch("/room/:id", async (req, res) => {
+  try {
+    const updatedRoom = await Room.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: req.body },
+      { new: true }
+    );
 
-        if (!updatedRoom) {
-            return res.status(404).json({ msg: "Pet not found" });
-        }
-
-        return res.status(200).json(updatedRoom);
-
-    } catch (err) {
-        return res.status(500).json({ msg: err });
+    if (!updatedRoom) {
+      return res.status(404).json({ msg: "Room not found." });
     }
-})
+
+    return res.status(200).json(updatedRoom);
+  } catch (err) {
+    return res.status(500).json({ msg: err });
+  }
+});
+
+router.delete("/room/:id", async (req, res) => {
+  try {
+    const deleted = await Room.deleteOne({ _id: req.params.id });
+
+    if (!deleted) {
+      return res.status(404).json({ msg: "Room not found." });
+    }
+
+    return res.status(200).json({});
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ msg: err });
+  }
+});
 
 module.exports = router;

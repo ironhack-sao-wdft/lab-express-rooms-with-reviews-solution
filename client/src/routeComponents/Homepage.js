@@ -3,6 +3,7 @@ import axios from "axios";
 
 import RoomPost from "../components/RoomPost";
 import Spinner from "../components/Spinner";
+require("dotenv").config();
 
 function Homepage() {
   const [room, setRooms] = useState([]);
@@ -12,7 +13,8 @@ function Homepage() {
   useEffect(() => {
     async function fetchRooms() {
       try {
-        const response = await axios.get("http://localhost:4000/room");
+        setLoading(true);
+        const response = await axios.get(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/room`);
 
         console.log(response);
 

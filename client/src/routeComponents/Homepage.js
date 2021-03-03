@@ -35,7 +35,7 @@ function Homepage() {
       ) : (
         <div>
           {room.map((element) => (
-            <RoomPost room={element} key={room._id} />
+            <RoomPost room={element} key={element._id} />
           ))}
         </div>
       )}

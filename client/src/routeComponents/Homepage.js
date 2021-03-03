@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import PostRoom from "../components/PostRoom";
+import RoomPost from "../components/RoomPost";
 import Spinner from "../components/Spinner";
 
-function Timeline() {
-  const [rooms, setRooms] = useState([]);
+function Homepage() {
+  const [room, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // useEffect
@@ -32,8 +32,8 @@ function Timeline() {
         <Spinner className="mt-5" color="text-secondary" />
       ) : (
         <div>
-          {rooms.map((e) => (
-            <PostRoom post={e} key={rooms._id} />
+          {room.map((element) => (
+            <RoomPost room={element} key={room._id} />
           ))}
         </div>
       )}
@@ -41,4 +41,4 @@ function Timeline() {
   );
 }
 
-export default Timeline;
+export default Homepage;

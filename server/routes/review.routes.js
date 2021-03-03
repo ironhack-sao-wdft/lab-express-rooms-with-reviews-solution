@@ -12,7 +12,7 @@ router.post("/room/:id/review", async (req, res) => {
 
     const room = await Room.findOneAndUpdate(
       { _id: req.params.id },
-      { $set: { reviews: newReview._id } },
+      { $push: { reviews: newReview._id } },
       { new: true }
     );
 

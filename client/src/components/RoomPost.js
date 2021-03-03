@@ -1,4 +1,4 @@
-function PostRoom(props) {
+function RoomPost(props) {
     return (
         <div className="card border-0  mb-2" key={props.room._id}>
       <img
@@ -14,4 +14,4 @@ function PostRoom(props) {
     )
 };
 
-export default PostRoom;
+export default RoomPost;

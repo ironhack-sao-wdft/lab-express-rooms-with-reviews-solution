@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Room = require("../models/Room.model");
 
+// Crud (Create)
 router.post("/room", async (req, res) => {
   try {
     const newRoom = await Room.create(req.body);
@@ -14,6 +15,7 @@ router.post("/room", async (req, res) => {
   }
 });
 
+// cRud (Read) all
 router.get("/room", async (req, res) => {
   try {
     const rooms = await Room.find();
@@ -24,6 +26,7 @@ router.get("/room", async (req, res) => {
   }
 });
 
+// cRud (Read) one
 router.get("/room/:id", async (req, res) => {
   try {
     const room = await Room.findOne({ _id: req.params.id });
@@ -38,6 +41,7 @@ router.get("/room/:id", async (req, res) => {
   }
 });
 
+// crUd (Update)
 router.patch("/room/:id", async (req, res) => {
   try {
     const updatedRoom = await Room.findOneAndUpdate(
@@ -56,6 +60,7 @@ router.patch("/room/:id", async (req, res) => {
   }
 });
 
+// cruD (Delete)
 router.delete("/room/:id", async (req, res) => {
   try {
     const deleted = await Room.deleteOne({ _id: req.params.id });

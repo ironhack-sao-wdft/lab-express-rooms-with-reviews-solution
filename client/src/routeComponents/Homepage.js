@@ -14,7 +14,9 @@ function Homepage() {
     async function fetchRooms() {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/room`);
+        const response = await axios.get(
+          `http://localhost:${process.env.REACT_APP_SERVER_PORT}/room`
+        );
 
         console.log(response);
 
@@ -34,9 +36,9 @@ function Homepage() {
         <Spinner className="mt-5" color="text-secondary" />
       ) : (
         <div>
-          {room.map((element) => (
-            <RoomPost room={element} key={element._id} />
-          ))}
+            {room.map((element) => (
+              <RoomPost room={element} key={element._id} />
+            ))}
         </div>
       )}
     </div>

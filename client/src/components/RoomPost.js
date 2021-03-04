@@ -10,6 +10,7 @@ function RoomPost(props) {
         <span>{props.room.name}</span>
         <p>{props.room.description}</p>
       </div>
+      
     </div>
   );
 }

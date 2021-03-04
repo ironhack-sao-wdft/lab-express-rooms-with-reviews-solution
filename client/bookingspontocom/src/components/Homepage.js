@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Room from "./Room";
 import Spinner from "./Spinner";
@@ -23,22 +24,16 @@ function Homepage() {
   }, []);
   console.log(rooms);
 
-  //   return (
-  //     <div>
-  //       {rooms.map((element) => (
-  //         <Room room={element} key={element._id} />
-  //       ))}
-  //     </div>
-  //   );
-
   return (
     <div className="d-flex justify-content-center">
       {loading ? (
         <Spinner className="mt-5" color="text-secondary" />
       ) : (
-        <div>
+        <div className="d-flex m-5">
           {rooms.map((element) => (
-            <Room room={element} key={element._id} />
+            <Link to={`/${element._id}`} key={element._id}>
+              <Room room={element} />
+            </Link>
           ))}
         </div>
       )}

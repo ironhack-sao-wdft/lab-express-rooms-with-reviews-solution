@@ -1,6 +1,10 @@
 function Room(props) {
   return (
-    <div className="card border-0  mb-2" key={props.room._id}>
+    <div
+      className="card border-0  mb-2"
+      style={{ width: 500 }}
+      key={props.room._id}
+    >
       <img
         src={props.room.imageUrl}
         className="card-img-top rounded-0"

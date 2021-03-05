@@ -30,7 +30,7 @@ router.get("/room", async (req, res) => {
 
 router.get("/room/:id", async (req, res) => {
   try {
-    const room = await Room.findOne({ _id: req.params.id });
+    const room = await Room.findOne({ _id: req.params.id }).populate("reviews");
     console.log(room);
 
     if (!room) {

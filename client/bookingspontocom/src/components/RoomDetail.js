@@ -25,7 +25,7 @@ function RoomDetail() {
   useEffect(() => {
     async function fetchroomDetails() {
       const response = await axios.get(`http://localhost:4000/room/${id}`);
-
+      console.log(response);
       setDetailed({ ...response.data });
     }
     fetchroomDetails();
@@ -55,7 +55,11 @@ function RoomDetail() {
           <p>{element}</p>
         ))} */}
         {/* <Review /> */}
-        <p>{detailed.reviews}</p>
+        {/* <p>{detailed.reviews}</p> */}
+        <ul></ul>
+        {detailed.reviews.map((element) => (
+          <p>{element.comment}</p>
+        ))}
         <button className="btn btn-light">Leave a review</button>
       </div>
     </div>
